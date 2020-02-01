@@ -32,6 +32,7 @@ export class ShopDetail extends React.Component {
     componentDidMount() {
         const shop_code = this.props.navigation.getParam('shop_code',null)
 
+
         this.setState({ 
             loading: true,
             alert: '',
@@ -43,10 +44,12 @@ export class ShopDetail extends React.Component {
                         alert: 'network-failed',
                     });
                 }else if (response.data.length == 0) {
-                    this.setState({
-                        loading: false,
-                        alert: 'not-found',
-                    });
+                    // this.setState({
+                    //     loading: false,
+                    //     alert: 'not-found', 
+                //});
+                    this.props.navigation.goBack();
+                   
                 }else{
                     this.setState({ 
                         loading: false,
